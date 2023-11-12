@@ -1,0 +1,7 @@
+= select_tag 'class',
+  options_for_select(filter_collection),
+  class: 'mb-3',
+  id: 'class-select',
+  data: { choices_target: 'select',
+          schedules_target: 'course',
+          action: 'change->schedules#selectClassOffCanvas' }

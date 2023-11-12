@@ -1,0 +1,50 @@
+.nav-link-icon.material-icons {
+  font-size: 1.25rem;
+}
+
+.navbar-brand-image {
+  width: 165px;
+  height: 55px;
+}
+
+.navbar-nav .nav-item-title {
+  padding: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $white;
+}
+
+.navbar-aside {
+  background-color: #f3f3f3;
+  border-right: 1px solid;
+  border-color: $white2;
+
+  .nav-item {
+    padding: 0.25rem 1rem;
+    .nav-link-title {
+      color: #757575;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
+
+  .active {
+    background: $blue;
+    border-radius: 5px;
+
+    .nav-link-title {
+      color: $white;
+      font-weight: 600;
+    }
+
+    .nav-link-icon {
+      opacity: unset;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

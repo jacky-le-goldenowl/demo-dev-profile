@@ -1,0 +1,8 @@
+.teacher-content.me-2.text-center type='button' data-bs-toggle="tooltip" data-bs-placement="bottom" title=teacher.name class="#{active.present? ? 'active' : ''}" data-teacher-id=teacher.id data-action='click->schedules#selectTeacher'
+  - avatar_url = teacher.avatar&.url
+  - if avatar_url.blank?
+    span.avatar.avatar-sm.rounded-circle.mb-2.border.border-warning.user-avatar
+      | T
+  - else
+    = image_tag avatar_url, class: 'user-avatar rounded-circle mb-2'
+  b = "#{teacher.name[..5]}.."

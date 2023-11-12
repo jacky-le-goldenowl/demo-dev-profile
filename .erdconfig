@@ -1,0 +1,34 @@
+attributes:
+  - content
+  - foreign_keys
+  - inheritance
+disconnected: true
+filename: billingsystem-erd
+filetype: pdf
+indirect: true
+inheritance: true
+markup: true
+notation: simple
+orientation: horizontal
+polymorphism: false
+sort: true
+warn: true
+title: null
+exclude:
+  [
+    'ActiveStorage::Blob',
+    'ActiveStorage::VariantRecord',
+    'ActiveRecord::InternalMetadata',
+    'ActiveRecord::SchemaMigration',
+    'ActiveStorage::Blob',
+    'ActiveStorage::Attachment',
+  ]
+only: null
+only_recursion_depth: null
+prepend_primary: false
+cluster: false
+splines: spline
+fonts:
+  normal: 'Arial'
+  bold: 'Arial Bold'
+  italic: 'Arial Italic'

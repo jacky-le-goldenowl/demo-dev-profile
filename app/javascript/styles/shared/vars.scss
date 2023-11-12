@@ -1,0 +1,46 @@
+$white: #ffffff;
+$black: #000000;
+$grey: #b8c2de;
+$dark: #0e1529;
+$violet: #5b1bca;
+$golden: #feb538;
+$golden2: #f28731;
+$red-pink: #e12a62;
+$green: #218e8a;
+$green-white: #d9eeed;
+$white2: #e2e8f0;
+$red-white: #ffecf2;
+$violet-white: #f2ebff;
+$blue: #31829c;
+$blue2: #28b6f3;
+$green2: #28887c;
+$gray: #f3f3f3;
+$gray2: #98acb8;
+
+$primary: $blue;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  8: 8px,
+);
+
+$position-values: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  100: 100%,
+);
+
+:root {
+  --bs-body-font-size: 16px !important;
+  --bs-body-font-family: 'Nunito' !important;
+  --bs-body-color: #304c5f !important;
+  // --bs-body-font-weight: 300 !important;
+  --tblr-body-bg: white;
+  --tblr-red: #e12a62;
+  --tblr-green: #218e8a;
+  --tblr-link-color: black;
+}

@@ -1,0 +1,45 @@
+@import '../utils/media-queries';
+
+.total-card-groups {
+  .total-card {
+    width: 270px;
+    height: 120px;
+    padding: 1.25rem;
+    margin-right: 1rem;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0.5rem 0.5rem $white, 0.5rem 0.5rem 0px 1px #4a5568;
+    @include respond-below(md) {
+      width: 100%;
+    }
+
+    &__hat {
+      width: 35px;
+      height: 21px;
+      background-image: url('~images/shared/hat.svg');
+    }
+    &__people {
+      width: 28px;
+      height: 21px;
+      background-image: url('~images/shared/people-group.svg');
+    }
+    &__class {
+      width: 21px;
+      height: 21px;
+      background-image: url('~images/shared/class-display.svg');
+    }
+  }
+
+  .bg-student {
+    background-color: #e12a62;
+  }
+  .bg-teacher {
+    background-color: #feb538;
+  }
+  .bg-class {
+    background-color: #218e8a;
+  }
+  .bg-class-current {
+    background-color: #5b1bca;
+  }
+}

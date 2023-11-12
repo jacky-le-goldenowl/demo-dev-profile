@@ -1,0 +1,189 @@
+#schedules-index-container {
+  .subjects-list-container {
+    width: 25%;
+    @extend .width-mobile;
+
+    #collapseSubjects {
+      button {
+        background: rgba(49, 130, 156, 0.2);
+        color: #31829c;
+        border-radius: 8px;
+        font-weight: 700;
+      }
+
+      .subject-row:hover {
+        background-color: $green2;
+        border-radius: 8px;
+      }
+    }
+    .rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  .calendar-container {
+    width: 75%;
+    @extend .width-mobile;
+
+    .input-date {
+      width: 150px;
+      @extend .width-mobile;
+
+      .input-icon {
+        .input-icon-addon {
+          position: absolute;
+          z-index: 1;
+          height: 50%;
+          top: 25%;
+        }
+      }
+    }
+
+    .fc {
+      table {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .fc-datagrid-cell-main {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+      }
+
+      .fc-resource-timeline-divider {
+        width: 1px;
+        cursor: unset;
+      }
+
+      .fc-datagrid-cell-frame {
+        justify-content: center;
+      }
+
+      .event-title {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      .event-time {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+      }
+
+      .fc-datagrid-cell-frame,
+      .fc-timeline-event {
+        overflow: auto;
+      }
+
+      .overflow-auto {
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .events-container {
+        border-radius: 8px;
+        border: 1px solid;
+        border-left: 6px solid;
+      }
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 3px;
+    }
+  }
+
+  #modalCreateSubject {
+    #colorSample {
+      border: 1px solid gray;
+      background-color: white;
+      padding: 5px;
+      border-radius: 8px;
+      border-left: 6px solid gray;
+    }
+  }
+
+  .choices[data-type*='select-one'] .choices__button {
+    background-image: none;
+  }
+
+  #offcanvasRight {
+    width: 40%;
+    @extend .width-mobile;
+
+    .overflow-auto {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .teacher-content {
+      padding: 5px;
+      width: 4rem;
+      height: 5rem;
+      background: #ffffff;
+      border-radius: 10px;
+
+      &:hover {
+        border: 1px solid $blue;
+      }
+    }
+
+    .offcanvas-body {
+      .active {
+        border: 1px solid $blue;
+      }
+
+      .times {
+        height: 300px;
+
+        .line {
+          width: 90%;
+          background-color: $blue;
+        }
+
+        .btn-time {
+          padding: 16px 0 16px 64px;
+
+          &.fill-btn {
+            background-color: #5aa79e;
+            padding: 15px 0 15px 63px;
+            border-radius: 10px;
+            border: 1px solid $blue !important;
+          }
+
+          &:hover {
+            @extend .fill-btn;
+          }
+
+          .radio-input {
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        .schedule_already_exist {
+          background: #fafbff;
+          border-radius: 10px;
+          margin-left: 2.5rem;
+          width: 90%;
+          height: 52px;
+          position: relative;
+        }
+
+        .dot-cycle {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          position: absolute;
+          right: 1rem;
+        }
+      }
+    }
+  }
+}

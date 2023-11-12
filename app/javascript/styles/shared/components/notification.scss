@@ -1,0 +1,71 @@
+.notifications {
+  --tblr-offcanvas-width: 40%;
+
+  @include respond-below(md) {
+    --tblr-offcanvas-width: 90%;
+  }
+
+  .actions {
+    .active {
+      background: #f4f4f4;
+      border-radius: 10px;
+    }
+
+    .today-amount {
+      border-radius: 50%;
+      width: auto;
+    }
+
+    .mark-read-unread {
+      .title {
+        color: #31829c;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .contents {
+    .item {
+      padding: 1rem;
+      border-radius: 10px;
+      position: relative;
+
+      &:hover {
+        background-color: #f4f4f4;
+        .action {
+          display: flex;
+        }
+      }
+
+      &.unread {
+        background-color: rgba(49, 130, 156, 0.1);
+        &:hover {
+          background-color: #f4f4f4;
+        }
+      }
+
+      &.readed {
+        background-color: #f4f4f4;
+      }
+
+      .icon {
+        padding: 7px;
+        border-radius: 50%;
+        background-color: rgba(49, 130, 156, 0.1);
+        width: 40px;
+        height: 40px;
+      }
+
+      .title {
+        max-width: 80%;
+      }
+
+      .action {
+        display: none;
+        position: absolute;
+        right: 1rem;
+        top: 40%;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+#schedules-index-container data-controller='schedules'
+  .container-xl.bg-white.mb-4
+    .d-block.d-md-flex.justify-content-between.mt-4
+      .subjects-list-container.p-3
+        h2 = Date.current.strftime('%B')
+        p.m-0.text-muted = "Today is #{date_format_ordinalize_dmy_sort(Date.current)}"
+        .d-flex.justify-content-between type="button" data-bs-toggle="collapse" data-bs-target="#collapseSubjects" aria-expanded="false" aria-controls="collapseSubjects" data-action='click->schedules#rotateIcon'
+          span.w-100.font-weight-700.font-size-18 class="py-3"
+            = "Programmes (#{@subjects.size})"
+          = image_pack_tag 'icons/arrow-down-icon.svg'
+        #collapseSubjects.collapse.show data-schedules-target='subjects'
+          - @subjects.map do |subject|
+            .row.subject-row.p-2 id="subject#{subject.id}"
+              .d-inline-flex.align-items-center.justify-content-between
+                .form-check.m-0
+                  input.form-check-input type="checkbox" value=subject.id id="flexCheck-#{subject.id}" style="background-color: #{subject.color}" checked=true data-action='input->schedules#selectSubjects'
+                  label.form-check-label.text-ellipsis for="flexCheck-#{subject.id}"
+                    = subject.name
+                .actions
+                  a.nav-link.px-3[href='#' data-bs-toggle='dropdown' tabindex='-1' aria-label='Show actions']
+                    = image_pack_tag 'icons/edit-icon.svg'
+                  .dropdown-menu.dropdown-menu-arrow.dropdown-menu-end.dropdown-menu-card
+                    .card
+                      .list-group.list-group-flush.list-group-hoverable
+                        a.list-group-item.cursor-pointer data-bs-toggle="modal" role="button" data-url=edit_admin_subject_path(subject) data-action='click->schedules#setDatasetSubjectForm'
+                          .d-flex.col.text-truncate
+                            = image_pack_tag 'icons/edit-icon.svg'
+                            b.ms-2 Edit
+                        a.list-group-item.cursor-pointer data-bs-toggle="modal" href="#modalDeleteSubject" role="button" data-url=admin_subject_path(subject) data-subject-id="subject#{subject.id}" data-action='click->schedules#setDatasetSubject'
+                          = image_pack_tag 'icons/remove-icon.svg'
+                          b.ms-2.text-red Remove
+          button.btn.w-100.mt-3 data-bs-toggle="modal" type="button" data-url=new_admin_subject_path data-action='click->schedules#setDatasetSubjectForm'
+            | Create new subject
+      .calendar-container
+        .header-toolbar.d-block.d-md-flex.justify-content-around.align-items-center.my-3
+          .input-date
+            .input-icon
+              = image_pack_tag 'icons/calendar-icon.svg', class: 'input-icon-addon'
+              input#date-picker-input.form-control.date-from type="text" placeholder="Select day" data-datepicker-target="input" data-action='change->schedules#filterByDay' value="#{date_normal_format_ymd(Date.current)}"
+          .toolbar-center.d-flex.align-items-center
+            span type='button' data-action='click->schedules#prevTime' data-schedules-target='prev'
+              = image_pack_tag 'icons/chevron-left-icon.svg'
+            h2.font-weight-700.font-size-16.mx-3.pt-2 data-day="#{params[:day].blank? ? date_normal_format_ymd(Date.current) : params[:day]}" data-schedules-target='date' = date_format_ordinalize_dmy(Date.current)
+            span type='button' data-action='click->schedules#nextTime' data-schedules-target='next'
+              = image_pack_tag 'icons/chevron-right-icon.svg'
+          button.btn.btn-primary data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" Create Schedule
+        .fullcalendar-container data-schedules-target='calendar'
+  #offcanvasRight.offcanvas.offcanvas-end tabindex="-1" aria-labelledby="offcanvasRightLabel"
+    = render 'admin/schedules/offcanvas/offCanvas'
+  #modalCreateSubject.modal.fade aria-hidden="true" aria-labelledby="staticBackdropLabel" tabindex="-1"
+  #modalDeleteSubject.modal.fade[aria-hidden="true" aria-labelledby="modalDeleteSubject" tabindex="-1"]
+    = render 'admin/subjects/confirm_first_modal'

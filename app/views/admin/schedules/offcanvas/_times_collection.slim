@@ -1,0 +1,13 @@
+- hours_collection.each_with_index do |hour, index|
+  div.w-100
+    .d-inline-flex.align-items-center.w-100
+      label.me-2 = hour
+      hr.hr.m-0.line
+    - if index != (hours_collection.size - 1)
+      - if check_hour_in_schedule(schedules, hour).blank?
+        span.w-100.border-0.d-flex.align-items-center.btn-time type='button' data-action='click->schedules#selectRadioTime'
+          input.me-2.radio-input type="radio" id="time-#{index}" name="radio-#{index}" value=hour
+          label type='button' = "#{hour} - #{hours_collection[index + 1]}"
+      - else
+        .schedule_already_exist.d-flex.align-items-center
+          .dot-cycle style="background-color: #{get_colour_from_find_subject(schedules, hour)}"

@@ -1,0 +1,124 @@
+@mixin button-status($status) {
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: default !important;
+
+  @if $status == 'finished' {
+    border-color: $green !important;
+    background: $green-white !important;
+    color: $green !important;
+
+    &:hover {
+      border-color: $green;
+      background: $green-white;
+      color: $green;
+    }
+  } @else if $status == 'cancelled' {
+    border-color: $red-pink !important;
+    background: $red-white !important;
+    color: $red-pink !important;
+
+    &:hover {
+      border-color: $red-pink !important;
+      background: $red-white !important;
+      color: $red-pink !important;
+    }
+  } @else if $status == 'on going' {
+    border-color: $violet !important;
+    background: $violet-white !important;
+    color: $violet !important;
+
+    &:hover {
+      border-color: $violet;
+      background: $violet-white;
+      color: $violet;
+    }
+  }
+}
+
+@mixin button-status-attendance($status) {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  gap: 10px;
+  border-radius: 50px;
+  padding-left: 1.5rem;
+
+  width: auto;
+  height: 30px;
+
+  @if $status == 'present' {
+    background: $white;
+    border: 1px solid $green;
+    .dot-icon {
+      background-color: $green;
+    }
+  } @else if $status == 'absent' {
+    background: $white;
+    border: 1px solid $red-pink;
+    .dot-icon {
+      background-color: $red-pink;
+    }
+  } @else if $status == 'rescheduled' {
+    background: $white;
+    border: 1px solid $golden;
+    .dot-icon {
+      background-color: $golden;
+    }
+  }
+}
+
+@mixin status-attendance {
+  background: unset;
+
+  .btn-status-attendant {
+    @include button-status-attendance('present');
+  }
+
+  .btn-status-absent {
+    @include button-status-attendance('absent');
+  }
+
+  .btn-status-rescheduled {
+    @include button-status-attendance('rescheduled');
+  }
+
+  .dot-icon {
+    position: absolute;
+    left: 20px;
+  }
+}
+
+@mixin nav-pills {
+  border-bottom: 1px solid #d9d9d9;
+
+  .nav-item {
+    font-size: 16px;
+
+    .active {
+      font-weight: 700;
+      background: white;
+      color: $black;
+      border-bottom: 3px solid $blue;
+      border-radius: 0;
+    }
+  }
+}
+
+@mixin student-avatars {
+  display: inline-block;
+  margin-left: 20px;
+
+  .avatar {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+  }
+}

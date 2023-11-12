@@ -1,0 +1,21 @@
+@import '../shared/index';
+@import './theme';
+
+// components
+@import './components/table';
+@import './components/form';
+@import './components/common';
+
+// views
+@import './views/dashboard';
+@import './views/teacher';
+@import './views/attendances';
+@import './views/calendar';
+@import './views/schedules';
+@import './views/courses';
+@import '../teacher/views/home';
+@import './views/invoices';
+@import './views/settings';
+@import './views/analysis';
+@import './views/profile';
+@import './views/attendance_request';

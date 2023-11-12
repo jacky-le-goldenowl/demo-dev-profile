@@ -1,0 +1,17 @@
+@import './custom-classes';
+
+.modal-content {
+  @extend .border-radius-15;
+
+  .modal-header {
+    border-radius: 15px 15px 0 0;
+  }
+
+  .btn-close {
+    box-shadow: none;
+  }
+
+  .modal-footer {
+    border-radius: 0 0 15px 15px;
+  }
+}

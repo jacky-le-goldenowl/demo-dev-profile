@@ -1,0 +1,39 @@
+.card
+  .table-responsive
+    table.table.table-vcenter.table-mobile-md.card-table
+      thead
+        tr
+          th Day
+          th Start Time
+          th End Time
+          th Status
+          th Teacher
+          th.w-1
+      tbody
+        - schedules.each do |schedule|
+          - teacher = schedule.teacher
+          tr
+            td data-label="Day"
+              .font-weight-700 = date_normal_format(schedule.day)
+            td data-label="Start Time"
+              .font-weight-700 = time_format_24h(schedule.start_time)
+            td data-label="End Time"
+              span.font-weight-700 = time_format_24h(schedule.end_time)
+            td data-label="Status"
+              span.font-weight-700 = schedule_status_name(schedule.status)
+            td data-label="Teacher info"
+              .d-flex.py-1.align-items-center
+                - avatar_url = teacher.avatar&.url
+                - if avatar_url.blank?
+                  span.avatar.avatar-sm.rounded-circle.me-2.border.border-warning.user-avatar
+                    | S
+                - else
+                  = image_tag avatar_url, class: 'user-avatar rounded-circle me-2'
+                = link_to admin_teacher_path(teacher.id), class: 'fw-bold text-blue width-content-10 text-ellipsis' do
+                  = teacher&.name
+            td
+              .nav-item.dropdown.d-none.d-md-flex.me-3
+                = render 'admin/shared/three_dot',
+                          show_path: '#',
+                          edit_path: '#',
+                          remove_path: '#'

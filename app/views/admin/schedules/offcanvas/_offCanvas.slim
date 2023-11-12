@@ -1,0 +1,38 @@
+.offcanvas-header.border-0.pb-0
+  h2#offcanvasRightLabel Create new schedule
+  button.btn-close.text-reset aria-label="Close" data-bs-dismiss="offcanvas" type="button"
+.offcanvas-body
+  = simple_form_for Schedule.new, url: admin_schedules_path, method: :post, remote: true do |f|
+    = f.hidden_field :course_id
+    = f.hidden_field :user_id
+    = f.hidden_field :day
+    = f.hidden_field :start_time
+    = f.hidden_field :end_time
+    button#btnSubmitCreateSchedule.d-none submit
+  .row
+    .col-12.col-md-6.subject-select-container
+      label.font-weight-700 Subject
+      = select_tag 'subject',
+        options_for_select(programme_filter_collection(@current_region)),
+        class: 'mb-3',
+        data: { choices_target: 'select',
+                schedules_target: 'subject',
+                action: 'change->schedules#selectSubjectOffCanvas' }
+    .col-12.col-md-6.class-select-container.d-none
+      label.font-weight-700 Class
+      #classListComponent
+        = render 'admin/schedules/offcanvas/courses_collection',
+          filter_collection: classes_filter_collection(@current_region)
+  .row
+    label.font-size-16.font-weight-700.my-3 Select teacher
+    #list_teacher_infos.w-100.d-flex.overflow-auto
+      - @teachers.map do |teacher|
+        = render 'admin/schedules/offcanvas/teacher_info', teacher: teacher, active: ''
+  .row
+    label.font-size-16.font-weight-700.my-3 Pick date and time
+    .input-icon.my-3.w-50
+      input.form-control type='text' placeholder='Select date' value=date_normal_format_ymd(Date.current) data-datepicker-target='input' data-schedules-target='dateCanvas' data-action="input->schedules#callFilterDay"
+      span.input-icon-addon
+        = image_pack_tag 'icons/calendar-icon.svg', class: 'me-3'
+    #timeListcontainer.times.overflow-auto
+    button.btn.btn-primary.w-100.border-radius-10.mt-4 data-action='click->schedules#createSchedule' Save

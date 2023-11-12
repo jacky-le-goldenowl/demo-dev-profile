@@ -1,0 +1,90 @@
+en:
+  common:
+    create:
+      success: 'Created %{model} successfully'
+      failed: 'Unable to create %{model}'
+    update:
+      success: 'Updated %{model} successfully'
+      failed: 'Unable to update %{model}'
+    destroy:
+      success: 'Destroyed %{model} successfully'
+      failed: 'Unable to delete %{model}'
+    duplicate:
+      success: 'Duplidated %{model} successfully'
+      failed: 'Unable to duplicate %{model}'
+    empty: 'No resources available'
+    reset_password:
+      success: 'New password has been sent to %{email}'
+      failed: 'Reset password failed! Please try again'
+    errors: "Oh dear. Something's wrong, please try again later!"
+  policy:
+    not_authorized: 'You are not authorized to perform this action.'
+  activerecord:
+    attributes:
+      teacher_info:
+        birthday: 'Date of birth'
+        name: 'Teacher name'
+        qualification: 'Qualifications'
+        phone_number: 'Contact Mobile'
+      bank_info:
+        name: 'Bank name'
+        address: 'Bank address'
+  notifications:
+    read: 'Updated to read!'
+    unread: 'Updated to unread!'
+    deleted: 'Record related deleted!'
+    user:
+      new_user_notification:
+        message: 'Welcome to Billing system!'
+      update_profile_notification:
+        message: 'Your profile has been updated.'
+      update_password_notification:
+        message: 'Reset password successfully.'
+      update_account_setting_notification:
+        message: 'Update account setting successfully.'
+    campus:
+      update_notification:
+        message: 'Your campus has been updated.'
+      create_notification:
+        message: 'New Campus has been created.'
+    course:
+      create_notification:
+        message_admin: 'New course has been created.'
+        message_teacher: 'You has been added to class successfully.'
+      add_student_notification:
+        message_student: 'You has been added to class successfully.'
+        message_admin: '%{student_name} has been added to your class.'
+      remove_student_notification:
+        message_student: 'You has been removed from class successfully.'
+        message_admin: '%{student_name} has been removed from your class!'
+    attendance_request:
+      rejected_notification:
+        message: 'Your request change lesson was rejected!'
+      approved_notification:
+        message: 'Your request change lesson was approved!'
+      create_notification:
+        message_student: 'Send request change lesson successfully.'
+        message_admin: 'You have new attendance request!'
+    payslip:
+      create_notification:
+        message: 'You have new payslip!'
+    invoice:
+      create_notification:
+        message: 'You have new invoice!'
+      update_status_notification:
+        message: 'Your invoice has been updated to %{status}'
+      update_deposit_notification:
+        message: 'Your invoice has been updated to %{deposit}'
+    subject:
+      create_notification:
+        message: 'New subject has been created.'
+      update_notification:
+        message: 'Subject has been updated.'
+    event:
+      create_notification:
+        message: 'New event has been created.'
+    admin:
+      create_notification:
+        message: 'New admin has been created.'
+      update_notification:
+        message: 'One admin has been updated.'

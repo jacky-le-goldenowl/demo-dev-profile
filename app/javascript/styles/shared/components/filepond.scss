@@ -1,0 +1,37 @@
+.filepond-avatar {
+  width: 200px !important;
+  height: 200px !important;
+  display: none;
+
+  &.filepond--root {
+    display: block;
+
+    .filepond--credits {
+      display: none;
+    }
+  }
+
+  .filepond--file .filepond--file-status {
+    margin: auto;
+    display: block;
+    transform: unset !important;
+    text-align: center;
+    color: #d63939;
+
+    span {
+      display: block;
+    }
+  }
+}
+
+.filepond-input {
+  display: none;
+
+  &.filepond--root {
+    display: block;
+  }
+}
+
+.filepond--credits {
+  display: none;
+}
